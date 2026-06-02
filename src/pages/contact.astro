@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Contact — De Feestmakers | Evenementenbureau Nijverdal, Overijssel"
+  description="Neem contact op met De Feestmakers voor een vrijblijvend gesprek over jouw evenement. Gevestigd aan de Stationsstraat 2 in Nijverdal, Overijssel. Bel (0548) 785 528."
+  canonical="https://defeestmakers.nl/contact"
+>
+
+  <section class="page-header" style="min-height: 35vh;">
+    <div class="page-header-bg">
+      <img src="https://defeestmakers.nl/wp-content/uploads/2025/04/home-footer-4.jpg" alt="Neem contact op met De Feestmakers evenementenbureau Nijverdal" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="page-header-content">
+      <p class="section-label">Neem contact op</p>
+      <h1 class="display-heading">Laten we<br/><span class="accent">praten</span></h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Form -->
+        <div class="reveal">
+          <h2 class="section-title" style="font-size: clamp(1.5rem, 3vw, 2.2rem);">Vertel ons over jouw event</h2>
+          <p class="body-text" style="margin-bottom: 2rem;">Vul het formulier in en we nemen zo snel mogelijk contact met je op. Liever bellen? Dat kan natuurlijk ook.</p>
+
+          <form action="https://formsubmit.co/info@defeestmakers.nl" method="POST">
+            <input type="hidden" name="_subject" value="Nieuw contactformulier defeestmakers.nl" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="_honey" style="display:none" />
+
+            <div class="form-group">
+              <label for="naam">Naam *</label>
+              <input type="text" id="naam" name="naam" required placeholder="Je volledige naam" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mailadres *</label>
+              <input type="email" id="email" name="email" required placeholder="je@email.nl" />
+            </div>
+
+            <div class="form-group">
+              <label for="telefoon">Telefoonnummer</label>
+              <input type="tel" id="telefoon" name="telefoon" placeholder="06 - ..." />
+            </div>
+
+            <div class="form-group">
+              <label for="type">Type evenement</label>
+              <select id="type" name="type_evenement">
+                <option value="">Selecteer een type...</option>
+                <option value="festival">Festival</option>
+                <option value="bedrijfsfeest">Bedrijfsfeest</option>
+                <option value="verjaardag">Verjaardag / Privéfeest</option>
+                <option value="brand-activatie">Brand activatie</option>
+                <option value="anders">Anders</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="bericht">Bericht *</label>
+              <textarea id="bericht" name="bericht" required placeholder="Vertel ons over jouw plannen, de datum, locatie en verwacht aantal gasten..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-arrow">Verstuur bericht</button>
+          </form>
+        </div>
+
+        <!-- Contact info -->
+        <div class="reveal reveal-delay-1">
+          <div class="contact-info-block">
+            <h3>Bezoekadres</h3>
+            <p>
+              De Feestmakers<br/>
+              Stationsstraat 2<br/>
+              7443 BX Nijverdal<br/>
+              Overijssel, Nederland
+            </p>
+          </div>
+
+          <div class="contact-info-block">
+            <h3>Bel of mail ons</h3>
+            <p>
+              <a href="tel:0548785528">(0548) 785 528</a><br/>
+              <a href="mailto:info@defeestmakers.nl">info@defeestmakers.nl</a>
+            </p>
+          </div>
+
+          <div class="contact-info-block">
+            <h3>Volg ons</h3>
+            <p>
+              <a href="https://www.instagram.com/feestmakers/" target="_blank" rel="noopener">Instagram →</a><br/>
+              <a href="https://www.facebook.com/martijn.rutgers.5" target="_blank" rel="noopener">Facebook →</a>
+            </p>
+          </div>
+
+          <div class="contact-info-block">
+            <h3>Werkgebied</h3>
+            <p>
+              Gevestigd in Nijverdal, actief in Twente, Salland, Overijssel, Gelderland en door heel Nederland. We komen graag naar jouw locatie toe — waar je event ook plaatsvindt.
+            </p>
+          </div>
+
+          <!-- Google Maps -->
+          <div class="map-wrapper" style="margin-top: 1.5rem;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2422.8!2d6.4570!3d52.3617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b7f4e8c47d9e0f%3A0x0!2sStationsstraat+2%2C+7443+BX+Nijverdal!5e0!3m2!1snl!2snl!4v1"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="De Feestmakers locatie — Stationsstraat 2, Nijverdal"
+            ></iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>

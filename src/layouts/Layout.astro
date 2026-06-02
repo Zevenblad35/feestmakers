@@ -1,0 +1,230 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title,
+  description = 'De Feestmakers — Evenementenbureau in Nijverdal, Overijssel. Van creatief concept naar professionele productie van festivals, bedrijfsfeesten en privéfeesten in heel Oost-Nederland.',
+  canonical = 'https://defeestmakers.nl',
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Geo SEO -->
+  <meta name="geo.region" content="NL-OV" />
+  <meta name="geo.placename" content="Nijverdal" />
+  <meta name="geo.position" content="52.3617;6.4592" />
+  <meta name="ICBM" content="52.3617, 6.4592" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content="https://defeestmakers.nl/wp-content/uploads/2025/04/logo-1080-wit.png" />
+  <meta property="og:locale" content="nl_NL" />
+  <meta property="og:site_name" content="De Feestmakers" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://defeestmakers.nl/wp-content/uploads/2025/04/logo-1080-wit.png" />
+
+  <!-- Structured Data: LocalBusiness -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "EventPlanner",
+    "name": "De Feestmakers",
+    "alternateName": "DJ Voor Jou",
+    "url": "https://defeestmakers.nl",
+    "logo": "https://defeestmakers.nl/wp-content/uploads/2025/04/logo-1080-wit.png",
+    "image": "https://defeestmakers.nl/wp-content/uploads/2025/04/home-footer-2.jpg",
+    "description": "Evenementenbureau in Nijverdal gespecialiseerd in festivals, bedrijfsevenementen en privéfeesten. Van creatief concept tot professionele productie in Overijssel en heel Nederland.",
+    "telephone": "+31548785528",
+    "email": "info@defeestmakers.nl",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Stationsstraat 2",
+      "addressLocality": "Nijverdal",
+      "addressRegion": "Overijssel",
+      "postalCode": "7443 BX",
+      "addressCountry": "NL"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 52.3617,
+      "longitude": 6.4592
+    },
+    "areaServed": [
+      { "@type": "State", "name": "Overijssel" },
+      { "@type": "State", "name": "Gelderland" },
+      { "@type": "Country", "name": "Nederland" }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/feestmakers/",
+      "https://www.facebook.com/martijn.rutgers.5"
+    ],
+    "priceRange": "€€-€€€"
+  })} />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="De Feestmakers — Home">
+        <img src="https://defeestmakers.nl/wp-content/uploads/2025/04/logo-1080-wit.png" alt="De Feestmakers logo — evenementenbureau Nijverdal" width="180" height="auto" loading="eager" />
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="/" class:list={[{ active: currentPath === '/' }]}>Home</a>
+        <a href="/over-ons" class:list={[{ active: currentPath === '/over-ons' || currentPath === '/over-ons/' }]}>Over Ons</a>
+        <div class="nav-dropdown">
+          <a href="/diensten" class:list={[{ active: currentPath.startsWith('/diensten') }]}>Diensten</a>
+          <div class="nav-dropdown-menu">
+            <a href="/diensten/concept-ontwikkeling">Concept Ontwikkeling</a>
+            <a href="/diensten/event-design">Event Design</a>
+            <a href="/diensten/technische-productie">Technische Productie</a>
+          </div>
+        </div>
+        <a href="/portfolio" class:list={[{ active: currentPath === '/portfolio' || currentPath === '/portfolio/' }]}>Portfolio</a>
+        <a href="/relaties" class:list={[{ active: currentPath === '/relaties' || currentPath === '/relaties/' }]}>Relaties</a>
+        <a href="/contact" class="nav-cta">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <slot />
+  </main>
+
+  <!-- Ticker -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <span class="ticker-item">Festivals<span class="dot">●</span></span>
+      <span class="ticker-item">Bedrijfsfeesten<span class="dot">●</span></span>
+      <span class="ticker-item">Privéfeesten<span class="dot">●</span></span>
+      <span class="ticker-item">Event Design<span class="dot">●</span></span>
+      <span class="ticker-item">Technische Productie<span class="dot">●</span></span>
+      <span class="ticker-item">Concept Ontwikkeling<span class="dot">●</span></span>
+      <span class="ticker-item">DJ & Entertainment<span class="dot">●</span></span>
+      <span class="ticker-item">Licht & Geluid<span class="dot">●</span></span>
+      <span class="ticker-item">Festivals<span class="dot">●</span></span>
+      <span class="ticker-item">Bedrijfsfeesten<span class="dot">●</span></span>
+      <span class="ticker-item">Privéfeesten<span class="dot">●</span></span>
+      <span class="ticker-item">Event Design<span class="dot">●</span></span>
+      <span class="ticker-item">Technische Productie<span class="dot">●</span></span>
+      <span class="ticker-item">Concept Ontwikkeling<span class="dot">●</span></span>
+      <span class="ticker-item">DJ & Entertainment<span class="dot">●</span></span>
+      <span class="ticker-item">Licht & Geluid<span class="dot">●</span></span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="https://defeestmakers.nl/wp-content/uploads/2025/04/logo-1080-wit.png" alt="De Feestmakers" width="150" loading="lazy" />
+          <p>Van creatief concept naar professionele productie. Evenementenbureau gevestigd in Nijverdal, Overijssel — actief door heel Nederland.</p>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-title">Navigatie</div>
+          <a href="/">Home</a>
+          <a href="/over-ons">Over Ons</a>
+          <a href="/diensten">Diensten</a>
+          <a href="/portfolio">Portfolio</a>
+          <a href="/relaties">Relaties</a>
+          <a href="/contact">Contact</a>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-title">Diensten</div>
+          <a href="/diensten/concept-ontwikkeling">Concept Ontwikkeling</a>
+          <a href="/diensten/event-design">Event Design</a>
+          <a href="/diensten/technische-productie">Technische Productie</a>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-title">Contact</div>
+          <a href="https://maps.google.com/?q=Stationsstraat+2+Nijverdal" target="_blank" rel="noopener">Stationsstraat 2<br/>7443 BX Nijverdal</a>
+          <a href="tel:0548785528">(0548) 785 528</a>
+          <a href="mailto:info@defeestmakers.nl">info@defeestmakers.nl</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; {new Date().getFullYear()} De Feestmakers — onderdeel van DJ Voor Jou</span>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/feestmakers/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.facebook.com/martijn.rutgers.5" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Navbar scroll effect
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav?.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile toggle
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle?.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      links?.classList.toggle('open');
+    });
+
+    // Close mobile nav on link click
+    links?.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        toggle?.classList.remove('open');
+        links?.classList.remove('open');
+      });
+    });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+  <style is:global>
+    @import '../styles/global.css';
+  </style>
+</body>
+</html>
